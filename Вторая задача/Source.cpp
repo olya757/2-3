@@ -1,5 +1,5 @@
-/*№2 
-Запись о товаре на складе представляет собой структуру с полями: номер счета,*/
+п»ї/*в„–2 
+Р—Р°РїРёСЃСЊ Рѕ С‚РѕРІР°СЂРµ РЅР° СЃРєР»Р°РґРµ РїСЂРµРґСЃС‚Р°РІР»СЏРµС‚ СЃРѕР±РѕР№ СЃС‚СЂСѓРєС‚СѓСЂСѓ СЃ РїРѕР»СЏРјРё: РЅРѕРјРµСЂ СЃС‡РµС‚Р°,*/
 #pragma once
 #include "Base.h"
 #include "Product.h"
@@ -27,20 +27,20 @@ int main() {
 			p.Input();
 			if (base.Add(p))
 			{
-				ShowMessage("Продукт добавлен");
+				ShowMessage("РџСЂРѕРґСѓРєС‚ РґРѕР±Р°РІР»РµРЅ");
 			}
 			break;
 		}
 		case 2: {
 			Product p;
-			InputNum("Введите код товара", p.Code);
+			InputNum("Р’РІРµРґРёС‚Рµ РєРѕРґ С‚РѕРІР°СЂР°", p.Code);
 			if (base.Delete(p))
 			{
-				ShowMessage("Продукт удален");
+				ShowMessage("РџСЂРѕРґСѓРєС‚ СѓРґР°Р»РµРЅ");
 			}
 			else
 			{
-				ShowMessage("Продукт не найден");
+				ShowMessage("РџСЂРѕРґСѓРєС‚ РЅРµ РЅР°Р№РґРµРЅ");
 			}
 			break;
 		}
@@ -49,17 +49,17 @@ int main() {
 			p.Input();
 			if (base.Change(p))
 			{
-				ShowMessage("Продукт изменен");
+				ShowMessage("РџСЂРѕРґСѓРєС‚ РёР·РјРµРЅРµРЅ");
 			}
 			else
 			{
-				ShowMessage("Продукт не найден");
+				ShowMessage("РџСЂРѕРґСѓРєС‚ РЅРµ РЅР°Р№РґРµРЅ");
 			}
 			break;
 		}
 		case 4: {
 			Product p;
-			InputNum("Введите код товара", p.Code);
+			InputNum("Р’РІРµРґРёС‚Рµ РєРѕРґ С‚РѕРІР°СЂР°", p.Code);
 			Base<Product> result;
 			if (ChooseType())
 			{
@@ -74,7 +74,7 @@ int main() {
 		}
 		case 5: {
 			Product p;
-			InputNum("Введите номер склада", p.NumOfStock);
+			InputNum("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЃРєР»Р°РґР°", p.NumOfStock);
 			Base<Product> result;
 			if (ChooseType())
 			{
@@ -107,9 +107,9 @@ int main() {
 		}
 		case 6: {
 			Product p;
-			p.OutPutDate.Input("Введите текущую дату");
+			p.OutPutDate.Input("Р’РІРµРґРёС‚Рµ С‚РµРєСѓС‰СѓСЋ РґР°С‚Сѓ");
 			Base<Product> result;
-			if (InputQuery("Выполнить поиск в отсортированной базе?")) 
+			if (InputQuery("Р’С‹РїРѕР»РЅРёС‚СЊ РїРѕРёСЃРє РІ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕР№ Р±Р°Р·Рµ?")) 
 			{
 				result.Assign(base.SortAndSearch_Life(p));
 			}
@@ -118,12 +118,12 @@ int main() {
 				result.Assign(base.LinSearch_Life(p));
 			}
 			result.Print();
-			if (InputQuery("Продолжить операции с новой базой?")) base = result;
+			if (InputQuery("РџСЂРѕРґРѕР»Р¶РёС‚СЊ РѕРїРµСЂР°С†РёРё СЃ РЅРѕРІРѕР№ Р±Р°Р·РѕР№?")) base = result;
 			break;
 		}
 		case 7: {
 			Product p;
-			p.InputDate.Input("Введите необходимую дату");
+			p.InputDate.Input("Р’РІРµРґРёС‚Рµ РЅРµРѕР±С…РѕРґРёРјСѓСЋ РґР°С‚Сѓ");
 			Base<Product> result;
 			if (ChooseType())
 			{
@@ -134,7 +134,7 @@ int main() {
 				result.Assign(base.BinSearch(CompInputDate, p));
 			}
 			result.Print();
-			if (InputQuery("Продолжить операции с новой базой?")) base = result;
+			if (InputQuery("РџСЂРѕРґРѕР»Р¶РёС‚СЊ РѕРїРµСЂР°С†РёРё СЃ РЅРѕРІРѕР№ Р±Р°Р·РѕР№?")) base = result;
 			break;
 		}
 		case 8: {
@@ -144,15 +144,15 @@ int main() {
 		case 9: {
 			_int32 ans = 1;
 			Base<Product> res=base;
-			cout << "Выберите критерии для поиска" << endl;
+			cout << "Р’С‹Р±РµСЂРёС‚Рµ РєСЂРёС‚РµСЂРёРё РґР»СЏ РїРѕРёСЃРєР°" << endl;
 			while (ans == 1) {
 				ChooseProductWithCriteries(res);
 				res.Print();
-				ans = (_int32)InputQuery("Добавить еще критерии?");
+				ans = (_int32)InputQuery("Р”РѕР±Р°РІРёС‚СЊ РµС‰Рµ РєСЂРёС‚РµСЂРёРё?");
 			}
-			if (InputQuery("Переместить выбранные продукты в новый склад?")) {
+			if (InputQuery("РџРµСЂРµРјРµСЃС‚РёС‚СЊ РІС‹Р±СЂР°РЅРЅС‹Рµ РїСЂРѕРґСѓРєС‚С‹ РІ РЅРѕРІС‹Р№ СЃРєР»Р°Рґ?")) {
 				_int32 stock;
-				InputNum("Введите номер склада", stock);
+				InputNum("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЃРєР»Р°РґР°", stock);
 				base.ChangeStockOfChoosenElems(res, stock);
 			}
 			break;

@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Product.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,7 +38,7 @@ void PrintDouble(double d, int N) {
 	cout << str;
 }
 
-//печать в консоль
+//РїРµС‡Р°С‚СЊ РІ РєРѕРЅСЃРѕР»СЊ
 void Product::Print() {
 	int N = 20;
 	PrintNum(Code, N);
@@ -50,20 +50,20 @@ void Product::Print() {
 	PrintDouble(Price, N);
 	cout << endl;
 }
-//считывание с консоли
+//СЃС‡РёС‚С‹РІР°РЅРёРµ СЃ РєРѕРЅСЃРѕР»Рё
 void Product::Input() {
-	InputNum("Введите уникальный код товара", Code);
-	InputStr("Введите название товара", Name);
-	InputNum("Введите номер склада", NumOfStock);
-	InputDate.Input("Введите дату поступления");
-	InputNum("Введите срок годности в днях", Life);
+	InputNum("Р’РІРµРґРёС‚Рµ СѓРЅРёРєР°Р»СЊРЅС‹Р№ РєРѕРґ С‚РѕРІР°СЂР°", Code);
+	InputStr("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР°", Name);
+	InputNum("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЃРєР»Р°РґР°", NumOfStock);
+	InputDate.Input("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ");
+	InputNum("Р’РІРµРґРёС‚Рµ СЃСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё РІ РґРЅСЏС…", Life);
 	OutPutDate = InputDate;
 	OutPutDate.Increase(Life);
-	InputNum("Введите количество товара", Count);
-	InputNum("Введите цену товара в симолеонах", Price);
+	InputNum("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂР°", Count);
+	InputNum("Р’РІРµРґРёС‚Рµ С†РµРЅСѓ С‚РѕРІР°СЂР° РІ СЃРёРјРѕР»РµРѕРЅР°С…", Price);
 }
 
-//ввод числа с консоли
+//РІРІРѕРґ С‡РёСЃР»Р° СЃ РєРѕРЅСЃРѕР»Рё
 void InputNum(string str, _int32 &res) {
 	cout << str << endl;
 	while (!(cin >> res && res>0));
@@ -74,7 +74,7 @@ void InputNum(string str, double &res) {
 	while (!(cin >> res && res>0));
 }
 
-//ввод строки с консоли
+//РІРІРѕРґ СЃС‚СЂРѕРєРё СЃ РєРѕРЅСЃРѕР»Рё
 void InputStr(string str, string &res) {
 	cout << str << endl;
 	do {

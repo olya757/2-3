@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,13 +14,13 @@ public:
 	Date();
 	string ToString();
 	bool Check();
-	void Increase(_int32 count);//в днях
+	void Increase(_int32 count);//РІ РґРЅСЏС…
 	void Input(string str);
 	void Print();
 };
 
 
-//вспомогательная функция, получает число из строки
+//РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ, РїРѕР»СѓС‡Р°РµС‚ С‡РёСЃР»Рѕ РёР· СЃС‚СЂРѕРєРё
 bool GetNum(string str, _int32 p1, _int32 p2, _int32 &res);
-//пытается конвертировать строку в дату
+//РїС‹С‚Р°РµС‚СЃСЏ РєРѕРЅРІРµСЂС‚РёСЂРѕРІР°С‚СЊ СЃС‚СЂРѕРєСѓ РІ РґР°С‚Сѓ
 bool TryStrToDate(string str, Date &d);

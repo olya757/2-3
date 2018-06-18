@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Date.h"
 
 Date::Date() {
@@ -8,12 +8,12 @@ Date::Date() {
 }
 
 
-//дата в строку
+//РґР°С‚Р° РІ СЃС‚СЂРѕРєСѓ
 string Date::ToString() {
 	string s = to_string(dd) + '.' + to_string(mm) + '.' + to_string(yy);
 	return s;
 }
-//проверить на правильность
+//РїСЂРѕРІРµСЂРёС‚СЊ РЅР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ
 bool Date::Check() {
 	_int32 maxdd;
 	switch (mm)
@@ -26,7 +26,7 @@ bool Date::Check() {
 	case 10: 
 	case 12: {maxdd = 31; break; }
 	case 2: {
-		maxdd = (yy % 4 == 0 && yy % 100 != 0)||(yy % 400 == 0) ? 29 : 28;//проверка
+		maxdd = (yy % 4 == 0 && yy % 100 != 0)||(yy % 400 == 0) ? 29 : 28;//РїСЂРѕРІРµСЂРєР°
 		break;
 	}
 	case 4: 
@@ -37,7 +37,7 @@ bool Date::Check() {
 	}
 	return dd > 0 && dd <= maxdd && yy > 0;
 }
-//увеличить дату на указанное количество дней
+//СѓРІРµР»РёС‡РёС‚СЊ РґР°С‚Сѓ РЅР° СѓРєР°Р·Р°РЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№
 void Date::Increase(_int32 count) {
 	while (count > 0) {
 		_int32 maxdd;
@@ -78,16 +78,16 @@ void Date::Increase(_int32 count) {
 	}
 }
 
-//ввод даты с консоли
+//РІРІРѕРґ РґР°С‚С‹ СЃ РєРѕРЅСЃРѕР»Рё
 void Date::Input(string str) {
 	cout << str << endl;
-	cout << "в формате dd.mm.yyyy" << endl;
+	cout << "РІ С„РѕСЂРјР°С‚Рµ dd.mm.yyyy" << endl;
 	string res;
 	do {
 		cin >> res;
 	} while (!TryStrToDate(res, *this));
 }
-//печать даты в консоль
+//РїРµС‡Р°С‚СЊ РґР°С‚С‹ РІ РєРѕРЅСЃРѕР»СЊ
 void Date::Print() {
 	cout << ToString() << endl;
 }
@@ -104,7 +104,7 @@ bool GetNum(string str, _int32 p1, _int32 p2, _int32 &res) {
 	}
 	return true;
 }
-//пытается конвертировать строку в дату
+//РїС‹С‚Р°РµС‚СЃСЏ РєРѕРЅРІРµСЂС‚РёСЂРѕРІР°С‚СЊ СЃС‚СЂРѕРєСѓ РІ РґР°С‚Сѓ
 bool TryStrToDate(string str, Date &d) {
 	unsigned _int32 i = 0;
 	while (i < str.size() && str[i] != '.')

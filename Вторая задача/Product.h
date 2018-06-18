@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,24 +9,24 @@
 using namespace std;
 class Product {
 public:
-	_int32 NumOfStock;//номер склада
+	_int32 NumOfStock;//РЅРѕРјРµСЂ СЃРєР»Р°РґР°
 	_int32 Code;
 	string Name;
-	Date InputDate;//дата поступления
-	Date OutPutDate;//дата окончания срока годности
-	_int32 Life;//срок годности в днях
+	Date InputDate;//РґР°С‚Р° РїРѕСЃС‚СѓРїР»РµРЅРёСЏ
+	Date OutPutDate;//РґР°С‚Р° РѕРєРѕРЅС‡Р°РЅРёСЏ СЃСЂРѕРєР° РіРѕРґРЅРѕСЃС‚Рё
+	_int32 Life;//СЃСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё РІ РґРЅСЏС…
 	_int32 Count;
 	double Price;
 	Product();
-	void Print();//печать в консоль
-	void Input();//ввод с консоли
+	void Print();//РїРµС‡Р°С‚СЊ РІ РєРѕРЅСЃРѕР»СЊ
+	void Input();//РІРІРѕРґ СЃ РєРѕРЅСЃРѕР»Рё
 };
 
 
-//ввод числа с консоли
+//РІРІРѕРґ С‡РёСЃР»Р° СЃ РєРѕРЅСЃРѕР»Рё
 void InputNum(string str, _int32 &res);
 
 void InputNum(string str, double &res);
-//ввод строки с консоли
+//РІРІРѕРґ СЃС‚СЂРѕРєРё СЃ РєРѕРЅСЃРѕР»Рё
 void InputStr(string str, string &res);
 

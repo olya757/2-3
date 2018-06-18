@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,12 +7,12 @@
 #include <fstream>
 #include "Product.h"
 using namespace std;
-//Base база данных продуктов
+//Base Р±Р°Р·Р° РґР°РЅРЅС‹С… РїСЂРѕРґСѓРєС‚РѕРІ
 template <class T>
 class Base {
 public:
 	vector<T> base;
-	string FileName;//имя файла
+	string FileName;//РёРјСЏ С„Р°Р№Р»Р°
 	void Assign(vector<T> b);
 	Base();
 	~Base();
@@ -20,63 +20,63 @@ public:
 	bool Add(T p);
 	bool Delete(T p);
 	bool Change(T p);
-	vector<T> LinSearch(bool(*f)(T&, T&), T need);//линейный поиск
-	vector<T> BinSearch(bool(*f)(T&, T&), T need);//бинарный поиск
-	vector<T> LinSearch_Life(T need);//линейный поиск просроченных, немного отличается от простого поиска
-	vector<T> SortAndSearch_Life(T need);//бинарный поиск просроченных
-	vector<T> GetStock(_int32 num);//получить все продукты с определенного склада
-	void  LoadFromFile();//загрузить из файла
-	void  SaveToFile();//сохранить в файл
-	void Print();//печать в консоль
-	void ChangeStockOfChoosenElems(Base<Product> res, _int32 newStock);//переместить продукты на другой склад
+	vector<T> LinSearch(bool(*f)(T&, T&), T need);//Р»РёРЅРµР№РЅС‹Р№ РїРѕРёСЃРє
+	vector<T> BinSearch(bool(*f)(T&, T&), T need);//Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє
+	vector<T> LinSearch_Life(T need);//Р»РёРЅРµР№РЅС‹Р№ РїРѕРёСЃРє РїСЂРѕСЃСЂРѕС‡РµРЅРЅС‹С…, РЅРµРјРЅРѕРіРѕ РѕС‚Р»РёС‡Р°РµС‚СЃСЏ РѕС‚ РїСЂРѕСЃС‚РѕРіРѕ РїРѕРёСЃРєР°
+	vector<T> SortAndSearch_Life(T need);//Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє РїСЂРѕСЃСЂРѕС‡РµРЅРЅС‹С…
+	vector<T> GetStock(_int32 num);//РїРѕР»СѓС‡РёС‚СЊ РІСЃРµ РїСЂРѕРґСѓРєС‚С‹ СЃ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ СЃРєР»Р°РґР°
+	void  LoadFromFile();//Р·Р°РіСЂСѓР·РёС‚СЊ РёР· С„Р°Р№Р»Р°
+	void  SaveToFile();//СЃРѕС…СЂР°РЅРёС‚СЊ РІ С„Р°Р№Р»
+	void Print();//РїРµС‡Р°С‚СЊ РІ РєРѕРЅСЃРѕР»СЊ
+	void ChangeStockOfChoosenElems(Base<Product> res, _int32 newStock);//РїРµСЂРµРјРµСЃС‚РёС‚СЊ РїСЂРѕРґСѓРєС‚С‹ РЅР° РґСЂСѓРіРѕР№ СЃРєР»Р°Рґ
 };
-//сравнение дат
+//СЃСЂР°РІРЅРµРЅРёРµ РґР°С‚
 bool CompDate(const Date &T1, const Date &T2);
-//сравнение складов
+//СЃСЂР°РІРЅРµРЅРёРµ СЃРєР»Р°РґРѕРІ
 bool CompNumOfStock(Product &T1, Product &T2);
-//сравнение кода
+//СЃСЂР°РІРЅРµРЅРёРµ РєРѕРґР°
 bool CompCode(Product &T1, Product &T2);
-//сравнение даты поступления
+//СЃСЂР°РІРЅРµРЅРёРµ РґР°С‚С‹ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ
 bool CompInputDate(Product &T1, Product &T2);
-//сравнение даты окончания срока годности
+//СЃСЂР°РІРЅРµРЅРёРµ РґР°С‚С‹ РѕРєРѕРЅС‡Р°РЅРёСЏ СЃСЂРѕРєР° РіРѕРґРЅРѕСЃС‚Рё
 bool CompOutPutDate(Product &T1, Product &T2);
-//сравнить количество
+//СЃСЂР°РІРЅРёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ
 bool CompCount(Product &T1, Product &T2);
-//сравнить цену
+//СЃСЂР°РІРЅРёС‚СЊ С†РµРЅСѓ
 bool CompPrice(Product &T1, Product &T2);
 
-//выбор критерия сортировки
+//РІС‹Р±РѕСЂ РєСЂРёС‚РµСЂРёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
 _int32 FiltrType();
 
-//отфильтровать продукты по критериям
+//РѕС‚С„РёР»СЊС‚СЂРѕРІР°С‚СЊ РїСЂРѕРґСѓРєС‚С‹ РїРѕ РєСЂРёС‚РµСЂРёСЏРј
 void ChooseProductWithCriteries(Base<Product> &res);
 
-//ввод имени файла
+//РІРІРѕРґ РёРјРµРЅРё С„Р°Р№Р»Р°
 void InputFileName(string &FileName);
-//показывает сообщение
+//РїРѕРєР°Р·С‹РІР°РµС‚ СЃРѕРѕР±С‰РµРЅРёРµ
 void ShowMessage(string str);
 
-//показывает итоги по каждому файлу
+//РїРѕРєР°Р·С‹РІР°РµС‚ РёС‚РѕРіРё РїРѕ РєР°Р¶РґРѕРјСѓ С„Р°Р№Р»Сѓ
 void ShowResultsForEachStock(Base<Product> b);
-//считывает ответ да или нет
+//СЃС‡РёС‚С‹РІР°РµС‚ РѕС‚РІРµС‚ РґР° РёР»Рё РЅРµС‚
 bool InputQuery(string str);
 
-//печать меню
+//РїРµС‡Р°С‚СЊ РјРµРЅСЋ
 _int32 PrintMenu(_int32 p);
 
-//выбор типа поиска
+//РІС‹Р±РѕСЂ С‚РёРїР° РїРѕРёСЃРєР°
 bool ChooseType();
-//реализация
+//СЂРµР°Р»РёР·Р°С†РёСЏ
 
 
 void PrintHeader() {
-	cout << "Код                 " <<
-		"Название            " <<
-		"Склад               " <<
-		"Дата поступления    " <<
-		"Срок годности       " <<
-		"Количество          " <<
-		"Цена                " << endl;
+	cout << "РљРѕРґ                 " <<
+		"РќР°Р·РІР°РЅРёРµ            " <<
+		"РЎРєР»Р°Рґ               " <<
+		"Р”Р°С‚Р° РїРѕСЃС‚СѓРїР»РµРЅРёСЏ    " <<
+		"РЎСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё       " <<
+		"РљРѕР»РёС‡РµСЃС‚РІРѕ          " <<
+		"Р¦РµРЅР°                " << endl;
 }
 
 template <class T>
@@ -240,7 +240,7 @@ vector<T> Base<T>::GetStock(_int32 num) {
 template <class T>
 bool Base<T>::Add(T p) {
 	if (LinSearch(CompCode, p).size() > 0) {
-		if (InputQuery("Такой элемент есть. Заменить?")) {
+		if (InputQuery("РўР°РєРѕР№ СЌР»РµРјРµРЅС‚ РµСЃС‚СЊ. Р—Р°РјРµРЅРёС‚СЊ?")) {
 			Change(p);
 			return true;
 		}
@@ -296,7 +296,7 @@ void Base<T>::ChangeStockOfChoosenElems(Base<Product> res, _int32 newStock) {
 	}
 }
 
-//сравнение дат
+//СЃСЂР°РІРЅРµРЅРёРµ РґР°С‚
 bool CompDate(const Date &T1, const Date &T2) {
 	if (T1.yy != T2.yy) { 
 		return T1.yy < T2.yy; 
@@ -306,101 +306,101 @@ bool CompDate(const Date &T1, const Date &T2) {
 	}
 	return T1.dd < T2.dd;
 }
-//сравнение складов
+//СЃСЂР°РІРЅРµРЅРёРµ СЃРєР»Р°РґРѕРІ
 bool CompNumOfStock(Product &T1, Product &T2) {
 	return (T1.NumOfStock < T2.NumOfStock);
 }
-//сравнение кода
+//СЃСЂР°РІРЅРµРЅРёРµ РєРѕРґР°
 bool CompCode(Product &T1, Product &T2) {
 	return (T1.Code < T2.Code);
 }
-//сравнение даты поступления
+//СЃСЂР°РІРЅРµРЅРёРµ РґР°С‚С‹ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ
 bool CompInputDate(Product &T1, Product &T2) {
 	return CompDate(T1.InputDate, T2.InputDate);
 }
-//сравнение даты окончания срока годности
+//СЃСЂР°РІРЅРµРЅРёРµ РґР°С‚С‹ РѕРєРѕРЅС‡Р°РЅРёСЏ СЃСЂРѕРєР° РіРѕРґРЅРѕСЃС‚Рё
 bool CompOutPutDate(Product &T1, Product &T2) {
 	return CompDate(T1.OutPutDate, T2.OutPutDate);
 }
-//сравнить количество
+//СЃСЂР°РІРЅРёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ
 bool CompCount(Product &T1, Product &T2) {
 	return (T1.Count < T2.Count);
 }
-//сравнить цену
+//СЃСЂР°РІРЅРёС‚СЊ С†РµРЅСѓ
 bool CompPrice(Product &T1, Product &T2) {
 	return (T1.Price < T2.Price);
 }
 
-//выбор критерия сортировки
+//РІС‹Р±РѕСЂ РєСЂРёС‚РµСЂРёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
 _int32 FiltrType() {
-	cout << "По какому критерию сортировать?" << endl;
+	cout << "РџРѕ РєР°РєРѕРјСѓ РєСЂРёС‚РµСЂРёСЋ СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ?" << endl;
 	_int32 res = 0;
 	do {
-		cout << "1 - По дате поступления на склад" << endl;
-		cout << "2 - По сроку годности" << endl;
-		cout << "3 - По количеству товара" << endl;
-		cout << "4 - По цене" << endl;
+		cout << "1 - РџРѕ РґР°С‚Рµ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РЅР° СЃРєР»Р°Рґ" << endl;
+		cout << "2 - РџРѕ СЃСЂРѕРєСѓ РіРѕРґРЅРѕСЃС‚Рё" << endl;
+		cout << "3 - РџРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ С‚РѕРІР°СЂР°" << endl;
+		cout << "4 - РџРѕ С†РµРЅРµ" << endl;
 		cin >> res;
 	} while (res <= 0 || res > 4);
 	return res;
 }
 
-//отфильтровать продукты по критериям
+//РѕС‚С„РёР»СЊС‚СЂРѕРІР°С‚СЊ РїСЂРѕРґСѓРєС‚С‹ РїРѕ РєСЂРёС‚РµСЂРёСЏРј
 void ChooseProductWithCriteries(Base<Product> &res) {
-	cout << "1 - Номер склада" << endl;
-	cout << "2 - Дата появления" << endl;
-	cout << "3 - Срок годности" << endl;
-	cout << "4 - Количество товара" << endl;
-	cout << "5 - Стоимость товара" << endl;
+	cout << "1 - РќРѕРјРµСЂ СЃРєР»Р°РґР°" << endl;
+	cout << "2 - Р”Р°С‚Р° РїРѕСЏРІР»РµРЅРёСЏ" << endl;
+	cout << "3 - РЎСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё" << endl;
+	cout << "4 - РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂР°" << endl;
+	cout << "5 - РЎС‚РѕРёРјРѕСЃС‚СЊ С‚РѕРІР°СЂР°" << endl;
 	_int32 ans = 0;
 	while (!(cin >> ans) && (ans <= 0 || ans > 5));
 	switch (ans) {
 	case 1: {
 		Product p;
-		InputNum("Введите номер склада", p.NumOfStock);
+		InputNum("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЃРєР»Р°РґР°", p.NumOfStock);
 		res.base = res.BinSearch(CompNumOfStock, p);
 		break; 
 	}
 	case 2: {
 		Product p;
-		p.InputDate.Input("Введите дату появления");
+		p.InputDate.Input("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РїРѕСЏРІР»РµРЅРёСЏ");
 		res.base = res.BinSearch(CompInputDate, p);
 		break;
 	}
 	case 3: {
 		Product p;
-		p.OutPutDate.Input("Введите дату окончания срока годности");
+		p.OutPutDate.Input("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РѕРєРѕРЅС‡Р°РЅРёСЏ СЃСЂРѕРєР° РіРѕРґРЅРѕСЃС‚Рё");
 		res.base = res.BinSearch(CompOutPutDate, p);
 		break;
 	}
 	case 4: {
 		Product p;
-		InputNum("Введите количество товара", p.Count);
+		InputNum("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂР°", p.Count);
 		res.base = res.BinSearch(CompCount, p);
 		break; 
 	}
 	case 5: {
 		Product p;
-		InputNum("Введите стоимость", p.Price);
+		InputNum("Р’РІРµРґРёС‚Рµ СЃС‚РѕРёРјРѕСЃС‚СЊ", p.Price);
 		res.base = res.BinSearch(CompPrice, p);
 		break; 
 	}
 	}
 }
 
-//ввод имени файла
+//РІРІРѕРґ РёРјРµРЅРё С„Р°Р№Р»Р°
 void InputFileName(string &FileName) {
-	cout << "Введите имя файла" << endl;
+	cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°" << endl;
 	do {
 		cin >> FileName;
 	} while (FileName == "");
 }
-//показывает сообщение
+//РїРѕРєР°Р·С‹РІР°РµС‚ СЃРѕРѕР±С‰РµРЅРёРµ
 void ShowMessage(string str) {
 	cout << str << endl << endl;
 }
 
-//показывает итоги по каждому файлу
+//РїРѕРєР°Р·С‹РІР°РµС‚ РёС‚РѕРіРё РїРѕ РєР°Р¶РґРѕРјСѓ С„Р°Р№Р»Сѓ
 void ShowResultsForEachStock(Base<Product> b) {
 	if (b.Count() == 0) return;
 	sort(b.base.begin(), b.base.end(), CompNumOfStock);
@@ -408,63 +408,63 @@ void ShowResultsForEachStock(Base<Product> b) {
 	_int32 cntAll = 0;
 	double Summ = 0;
 	_int32 NumOfStock = b.base[0].NumOfStock;
-	cout << "Склад №" << NumOfStock << endl;
+	cout << "РЎРєР»Р°Рґ в„–" << NumOfStock << endl;
 	for (Product p : b.base) {
 		if (p.NumOfStock != NumOfStock) {
-			cout << "Количество наименований:" << cntTypes << endl;
-			cout << "Количество товаров:" << cntAll << endl;
-			cout << "Суммарная стоимость:" << Summ << endl;
+			cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ РЅР°РёРјРµРЅРѕРІР°РЅРёР№:" << cntTypes << endl;
+			cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂРѕРІ:" << cntAll << endl;
+			cout << "РЎСѓРјРјР°СЂРЅР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ:" << Summ << endl;
 			cntTypes = 0;
 			cntAll = 0;
 			Summ = 0;
 			NumOfStock = p.NumOfStock;
-			cout << "Склад №" << NumOfStock << endl;
+			cout << "РЎРєР»Р°Рґ в„–" << NumOfStock << endl;
 		}
 		cntTypes++;
 		cntAll += p.Count;
 		Summ += p.Price;
 	}
-	cout << "Количество наименований:" << cntTypes << endl;
-	cout << "Количество товаров:" << cntAll << endl;
-	cout << "Суммарная стоимость:" << Summ << endl;
+	cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ РЅР°РёРјРµРЅРѕРІР°РЅРёР№:" << cntTypes << endl;
+	cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂРѕРІ:" << cntAll << endl;
+	cout << "РЎСѓРјРјР°СЂРЅР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ:" << Summ << endl;
 }
-//считывает ответ да или нет
+//СЃС‡РёС‚С‹РІР°РµС‚ РѕС‚РІРµС‚ РґР° РёР»Рё РЅРµС‚
 bool InputQuery(string str) {
 	cout << str << endl;
-	cout << "0 - нет" << endl;
-	cout << "1 - да" << endl;
+	cout << "0 - РЅРµС‚" << endl;
+	cout << "1 - РґР°" << endl;
 	_int32 ans;
 	while (!(cin >> ans && (ans == 0 || ans == 1)));
 	return ans == 1;
 }
 
 
-//печать меню
+//РїРµС‡Р°С‚СЊ РјРµРЅСЋ
 _int32 PrintMenu(_int32 p) {
-	cout << "1 - Добавить продукт" << endl;
+	cout << "1 - Р”РѕР±Р°РІРёС‚СЊ РїСЂРѕРґСѓРєС‚" << endl;
 	if (p > 2) {
-		cout << "2 - Удалить продукт" << endl;
-		cout << "3 - Изменить продукт" << endl;
-		cout << "4 - Найти продукт по коду" << endl;
-		cout << "5 - Показать продукты по номеру склада" << endl;
-		cout << "6 - Найти просроченные продукты" << endl;
-		cout << "7 - Найти товары по дате поступления" << endl;
-		cout << "8 - Напечатать в консоли" << endl;
-		cout << "9 - Найти товар по критериям" << endl;
-		cout << "10 - Показать сводный отчет по складам" << endl;
+		cout << "2 - РЈРґР°Р»РёС‚СЊ РїСЂРѕРґСѓРєС‚" << endl;
+		cout << "3 - РР·РјРµРЅРёС‚СЊ РїСЂРѕРґСѓРєС‚" << endl;
+		cout << "4 - РќР°Р№С‚Рё РїСЂРѕРґСѓРєС‚ РїРѕ РєРѕРґСѓ" << endl;
+		cout << "5 - РџРѕРєР°Р·Р°С‚СЊ РїСЂРѕРґСѓРєС‚С‹ РїРѕ РЅРѕРјРµСЂСѓ СЃРєР»Р°РґР°" << endl;
+		cout << "6 - РќР°Р№С‚Рё РїСЂРѕСЃСЂРѕС‡РµРЅРЅС‹Рµ РїСЂРѕРґСѓРєС‚С‹" << endl;
+		cout << "7 - РќР°Р№С‚Рё С‚РѕРІР°СЂС‹ РїРѕ РґР°С‚Рµ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ" << endl;
+		cout << "8 - РќР°РїРµС‡Р°С‚Р°С‚СЊ РІ РєРѕРЅСЃРѕР»Рё" << endl;
+		cout << "9 - РќР°Р№С‚Рё С‚РѕРІР°СЂ РїРѕ РєСЂРёС‚РµСЂРёСЏРј" << endl;
+		cout << "10 - РџРѕРєР°Р·Р°С‚СЊ СЃРІРѕРґРЅС‹Р№ РѕС‚С‡РµС‚ РїРѕ СЃРєР»Р°РґР°Рј" << endl;
 	}
-	cout << "0 - Выход" << endl;
+	cout << "0 - Р’С‹С…РѕРґ" << endl;
 	_int32 res;
 	while (!(cin >> res && res <= p && res >= 0));
 	return res;
 }
 
 
-//выбор типа поиска
+//РІС‹Р±РѕСЂ С‚РёРїР° РїРѕРёСЃРєР°
 bool ChooseType() {
-	cout << "Выберите тип поиска:" << endl;
-	cout << "0 - Бинарный" << endl;
-	cout << "1 - Линейный" << endl;
+	cout << "Р’С‹Р±РµСЂРёС‚Рµ С‚РёРї РїРѕРёСЃРєР°:" << endl;
+	cout << "0 - Р‘РёРЅР°СЂРЅС‹Р№" << endl;
+	cout << "1 - Р›РёРЅРµР№РЅС‹Р№" << endl;
 	_int32 ans;
 	while (!(cin >> ans && (ans == 1 || ans == 0)));
 	return ans == 1;
